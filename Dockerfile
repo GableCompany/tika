@@ -5,7 +5,7 @@ WORKDIR /workspace
 COPY . .
 
 RUN set -eux; \
-    mvn -pl tika-server/tika-server-standard -am -DskipTests package; \
+    mvn -pl tika-pipes/tika-pipes-plugins/tika-pipes-file-system,tika-server/tika-server-standard -am -DskipTests package; \
     bin_zip="$(ls tika-server/tika-server-standard/target/tika-server-standard-*-bin.zip | head -n 1)"; \
     mkdir -p /opt/tika; \
     cd /opt/tika; \
